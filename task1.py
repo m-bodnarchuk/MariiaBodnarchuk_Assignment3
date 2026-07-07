@@ -7,3 +7,8 @@ book_profile = {
 "city": "Київ"
 }
 }
+
+print(f'Назва книги: "{book_profile["title"]}", автор: {book_profile["author"]}')
+print(f'Назва видавництва: "{book_profile["publisher_info"]["name"]}"')
+print(f'Книга "{book_profile["title"]}" автора {book_profile["author"]} була видана у місті {book_profile["publisher_info"]["city"]}.')
+print(f"Рік видання {book_profile.get('year', "невідомий")}")
