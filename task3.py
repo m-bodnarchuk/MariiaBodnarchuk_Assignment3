@@ -18,4 +18,7 @@ passing_score = 60 # Прохідний бал
 # інформацією про складання іспиту.
 for student in exam_results:
     student["passed"] = True if student["score"] > passing_score else False
+    if student["passed"] is True:
+        student["comment"] = "Молодець!"
+
 print(exam_results)
