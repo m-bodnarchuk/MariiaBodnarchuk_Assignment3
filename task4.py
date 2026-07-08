@@ -34,11 +34,12 @@ def get_department_stats(employee_list, target_dept) -> dict:
     for employee in employee_list:
         if employee["department"] == target_dept:
             dep_emploees.append(employee)
+
     for employee in dep_emploees:
         if employee["salary"] > max_salary:
             max_salary = employee["salary"]
             top_earner = employee["name"]
-        count = count + 1
+        count += 1
         salaries.append(employee["salary"])
     average_salary = round(sum(salaries) / count, 2)
     department_stats = {
@@ -51,6 +52,36 @@ def get_department_stats(employee_list, target_dept) -> dict:
 
 print(get_department_stats(employees, "IT"))
 
+# ще один варіант вирішення
+def get_department_stats(employee_list, target_dept) -> dict:
+    department_stats = {}
+    top_earner = ""
+    count = 0
+    salaries = []
+    dep_emploees = []
+    max_salary =0
+
+    # for employee in employee_list:
+        # if employee["department"] == target_dept:
+        #     dep_emploees.append(employee)
+    new_emploees = list(filter(lambda x: x["department"] == target_dept, employee_list))
+    count = len(new_emploees)
+    for employee in new_emploees:
+        salaries.append(employee["salary"])
+        if employee["salary"] > max_salary:
+            max_salary = employee["salary"]
+            top_earner = employee["name"]
+
+    average_salary = round(sum(salaries) / count, 2)
+    department_stats = {
+        "department": target_dept,
+        "average_salary": average_salary,
+        "top_earner": top_earner,
+        "count": count
+        }
+    return department_stats
+
+print(get_department_stats(employees, "IT"))
 
 
 
