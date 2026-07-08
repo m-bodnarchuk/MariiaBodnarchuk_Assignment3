@@ -19,3 +19,9 @@ deposit_account["balance"] += interest
 deposit_account["last_update_type"] = "interest accrual"
 deposit_account["is_active"] = False
 print(deposit_account)
+# розрахунок чистого прибутку після вирахування податку на дохід фізичних осіб
+# (в Україні податок на доходи від депозитних відсотків становить
+# 18% ПДФО + 1.5% військовий збір).
+deposit_account["inter"] = 0.195
+profit = interest * (1-deposit_account["inter"])
+print(f"Чистиц прибуток: {profit}")
