@@ -18,3 +18,12 @@ print(f'Назва книги: "{book_profile["title"]}", автор: {book_prof
 print(f'Назва видавництва: "{book_profile["publisher_info"]["name"]}"')
 print(f'Книга "{book_profile["title"]}" автора {book_profile["author"]} була видана у місті {book_profile["publisher_info"]["city"]}.')
 print(f"Рік видання {book_profile.get('year', "невідомий")}")
+
+
+# Автоматичний розрахунок «віку» книги та додавання категорії кожної книги
+# за роком видання (наприклад, сучасне видання чи класика).
+if 2026 - book_profile["year"] < 5:
+    book_profile["book_age"] = "Сучасна література"
+else:
+    book_profile["book_age"] = "Класика"
+print(book_profile["book_age"])
