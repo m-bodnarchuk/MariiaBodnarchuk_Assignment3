@@ -82,6 +82,8 @@ def get_department_stats(employee_list, target_dept) -> dict:
     return department_stats
 
 print(get_department_stats(employees, "IT"))
+print(get_department_stats(employees, "Marketing"))
+
 
 
 
